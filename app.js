@@ -3,8 +3,12 @@ const volleyball = require("volleyball");
 const app = express();
 
 app.use(volleyball);
+
 app.use(express.static("public"));
+
 app.use("/", require("./Routes/index"));
+
+// Error handler
 app.use((err, req, res, next) => {
   res.status(500);
   res.send({
